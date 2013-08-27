@@ -89,13 +89,12 @@ module Google
         request.ssl? ? request_method = "https" : request_method = "http"
 
         # return the link tag
-        tag 'link', {
-            :rel  => :stylesheet,
-            :type => Mime::CSS,
-            :href => "#{request_method}://fonts.googleapis.com/css?family=#{family}"
-          },
-          false,
-          false
+        options = {
+          :rel  => :stylesheet,
+          :type => Mime::CSS,
+          :href => "#{request_method}://fonts.googleapis.com/css?family=#{family}"
+        }
+        tag 'link', options, false, false
       end
     end
     
